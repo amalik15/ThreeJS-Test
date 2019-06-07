@@ -16,7 +16,6 @@ function init() {
     document.body.appendChild(renderer.domElement);
 
     const geometry = new THREE.SphereGeometry(5, 32, 32);
-    //const material = new THREE.MeshBasicMaterial({ color: 0x0000ff });
     const texture = new THREE.TextureLoader().load(
         "textures/earth_atmos_2048.jpg"
     );
