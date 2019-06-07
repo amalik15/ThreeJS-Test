@@ -1,4 +1,4 @@
-let scene, camera, renderer, cube;
+let scene, camera, renderer, sphere;
 
 function init() {
     scene = new THREE.Scene();
@@ -15,21 +15,23 @@ function init() {
 
     document.body.appendChild(renderer.domElement);
 
-    const geometry = new THREE.BoxGeometry(2, 2, 2);
+    const geometry = new THREE.SphereGeometry(5, 32, 32);
     //const material = new THREE.MeshBasicMaterial({ color: 0x0000ff });
-    const texture = new THREE.TextureLoader().load("textures/crate.gif");
+    const texture = new THREE.TextureLoader().load(
+        "textures/earth_atmos_2048.jpg"
+    );
     const material = new THREE.MeshBasicMaterial({ map: texture });
-    cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+    sphere = new THREE.Mesh(geometry, material);
+    scene.add(sphere);
 
-    camera.position.z = 5;
+    camera.position.z = 20;
 }
 
 function animate() {
     requestAnimationFrame(animate);
 
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
+    //sphere.rotation.x += 0.01;
+    sphere.rotation.y += 0.01;
     renderer.render(scene, camera);
 }
 
